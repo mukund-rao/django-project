@@ -1,0 +1,13 @@
+{% extends "mk/base.html" %}
+{% block body_block %}
+<div class="jumbotron">
+	<h1>Delete {{order.isin2}} ?</h1>
+</div>
+<div class="container">
+	<form method="post">
+		{% csrf_token %}
+		<input type="submit" class="btn btn-danger" value="Delete">
+		<a href="{% url 'mk:order' %}">Cancel</a>
+	</form>
+</div>
+{% endblock %}

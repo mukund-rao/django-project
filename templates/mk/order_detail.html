@@ -1,0 +1,17 @@
+{% extends "mk/base.html" %}
+{% block body_block %}
+<div class="jumbotron">
+	<h1>Order Detail</h1>
+</div>
+<div class="container">
+	<h3>ISIN : {{ order_detail.isin2 }}</h3>
+	<h3>Ask Rate : {{ order_detail.ask_rate }}</h3>
+	<h3>Ask Quantity : {{ order_detail.ask_quantity }}</h3>
+	<br>
+</div>
+<div class="container">
+	<p><a class='btn btn-warning' href="{% url 'mk:update_order' pk=order_detail.pk %}">Update</a></p>
+
+	<p><a class='btn btn-danger' href="{% url 'mk:delete_order' pk=order_detail.pk %}">Delete</a></p>
+</div>
+{% endblock %}

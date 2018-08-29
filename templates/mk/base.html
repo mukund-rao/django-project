@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+	  {% if user.is_authenticated %}
+	    <li> <a class="navbar-brand" href="{% url 'index2' %}">Home</a></li>
+	    <li> <a class="navbar-link" href="{% url 'mk:profile' %}">Profile</a></li>
+	    <li> <a class="navbar-link" href="{% url 'mk:stock_owned' %}">Stocks Owned</a></li>
+	    <li> <a class="navbar-link" href="{% url 'mk:order' %}">Trade</a></li>
+	    <li> <a class="navbar-link" href="{% url 'mk:logout' %}">Logout</a></li>
+        
+          {% else %}
+	    <li> <a class="navbar-brand" href="{% url 'index' %}">Home</a></li>
+	    <li> <a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
+	    <li> <a class="navbar-link" href="{% url 'mk:signUp' %}">Sign Up</a></li>
+	    <li> <a class="navbar-link" href="{% url 'user_login' %}">Login</a></li>
+	  {% endif %}
+      </div>
+        </ul>
+    </nav>
+    <div class="container">
+	{% block body_block %}
+	{% endblock %}
+    </div>
+  </body>
+</html>
+

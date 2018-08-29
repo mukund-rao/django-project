@@ -1,0 +1,31 @@
+{% extends "mk/base.html" %}
+{% block body_block %}
+<div class="jumbotron">
+	<h1>Place Order</h1>
+</div>
+<div class="container">
+	{% if ordr %}
+		<table border="2" height=70px width=100% align=center>
+			<thead border="2" height=70px width=100% align=center>
+				<th align=center>ISIN</th>
+				<th align=center>Ask Rate</th>
+				<th align=center>Ask Quantity</th>
+			</thead>
+			{% for st in ordr %}
+			<tr border="2" height=70px width=100% align=center>
+				<td><a href="{{st.id}}">{{ st.isin2 }}</a></td>
+				<td>{{ st.ask_rate }}</td>
+				<td>{{ st.ask_quantity }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	{% else %}
+		<h3>No orders placed</h3>
+	{% endif %}
+	<br>
+	<form action="create/">
+    		<input type="submit" value="New Order" />
+	</form>
+		
+</div>
+{% endblock %}

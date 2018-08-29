@@ -1,0 +1,27 @@
+{% extends "mk/base.html" %}
+{% block body_block %}
+<div class="jumbotron">
+	<h1>Stocks Owned</h1>
+</div>
+<div class="container">
+	{% if stow %}
+		<table border="2" height=70px width=100% align=center>
+			<thead border="2" height=70px width=100% align=center>
+				<th align=center>ISIN</th>
+				<th align=center>Quantity</th>
+				<th align=center>Buy Rate</th>
+			</thead>
+			{% for st in stow %}
+			<tr border="2" height=70px width=100% align=center>
+				<td>{{ st.isin2 }}</td>
+				<td>{{ st.quantity }}</td>
+				<td>{{ st.buy_rate }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	{% else %}
+		<h3>No stocks owned</h3>
+	{% endif %}
+		
+</div>
+{% endblock %}
